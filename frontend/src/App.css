@@ -1,0 +1,302 @@
+/* General Styles */
+:root {
+  --primary-color: #00ffa3; /* Solana green */
+  --secondary-color: #9945ff; /* Solana purple */
+  --background-color: #1a1a1a;
+  --text-color: #f0f0f0;
+  --input-bg: #2a2a2a;
+  --input-border: #444;
+  --card-bg: #242424;
+  --error-color: #ff4d4d;
+  --success-color: #33cc33;
+  --link-color: var(--primary-color);
+  --button-bg: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  --button-text: #111;
+  --button-hover-opacity: 0.9;
+  --font-family: 'Inter', sans-serif; /* Example modern font */
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  width: 100%;
+}
+
+/* Container */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 800px;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--input-border);
+}
+
+.header h1 {
+  color: var(--primary-color);
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+/* Wallet Button Styles */
+.wallet-adapter-button {
+  background: var(--button-bg);
+  color: var(--button-text) !important; /* Override default */
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.wallet-adapter-button:hover {
+  opacity: var(--button-hover-opacity);
+}
+
+.wallet-adapter-button:disabled {
+    background: #4f4f4f;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.wallet-adapter-dropdown-list {
+    background: var(--card-bg) !important;
+    border: 1px solid var(--input-border) !important;
+}
+.wallet-adapter-dropdown-list-item {
+    color: var(--text-color) !important;
+}
+.wallet-adapter-dropdown-list-item:hover {
+    background: var(--input-bg) !important;
+}
+.wallet-adapter-modal-wrapper {
+    background-color: rgba(0, 0, 0, 0.7) !important;
+}
+.wallet-adapter-modal-container {
+    background: var(--card-bg) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4) !important;
+}
+.wallet-adapter-modal-title {
+    color: var(--primary-color) !important;
+}
+.wallet-adapter-modal-list li button {
+    background: var(--input-bg) !important;
+    color: var(--text-color) !important;
+}
+.wallet-adapter-modal-list li button:hover {
+    background: #3a3a3a !important;
+}
+.wallet-adapter-modal-button-close {
+    background: var(--input-bg) !important;
+    color: var(--text-color) !important;
+}
+
+
+/* Main Content & Form */
+.main-content {
+  width: 100%;
+  max-width: 600px;
+  background-color: var(--card-bg);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.token-form h2 {
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 1.2rem;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #ccc; /* Slightly lighter text for labels */
+}
+
+.form-group input[type="text"],
+.form-group input[type="url"],
+.form-group input[type="number"],
+.form-group textarea {
+  width: 100%;
+  padding: 0.8rem;
+  background-color: var(--input-bg);
+  border: 1px solid var(--input-border);
+  border-radius: 6px;
+  color: var(--text-color);
+  font-size: 1rem;
+  box-sizing: border-box; /* Include padding and border in element's total width/height */
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.form-group small {
+    display: block;
+    margin-top: 0.4rem;
+    font-size: 0.8rem;
+    color: #aaa;
+}
+
+.readonly-input {
+    background-color: #333 !important; /* Darker background for readonly */
+    cursor: not-allowed;
+    opacity: 0.8;
+}
+
+/* Submit Button */
+button[type="submit"] {
+  width: 100%;
+  padding: 0.9rem;
+  background: var(--button-bg);
+  color: var(--button-text);
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+  margin-top: 1rem;
+}
+
+button[type="submit"]:hover {
+  opacity: var(--button-hover-opacity);
+}
+
+button[type="submit"]:disabled {
+  background: #4f4f4f;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* Messages */
+.message {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  border-radius: 6px;
+  text-align: left;
+  word-wrap: break-word; /* Break long strings like addresses */
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.error-message {
+  background-color: rgba(255, 77, 77, 0.1);
+  border: 1px solid var(--error-color);
+  color: var(--error-color);
+  white-space: pre-wrap; /* Preserve line breaks in errors */
+}
+
+.success-message {
+  background-color: rgba(51, 204, 51, 0.1);
+  border: 1px solid var(--success-color);
+  color: var(--success-color);
+}
+
+.success-message p {
+    margin: 0.5rem 0;
+}
+
+.success-message strong {
+    color: #fff; /* Make strong text white for better contrast */
+}
+
+.success-message a {
+    color: var(--link-color);
+    text-decoration: none;
+    word-break: break-all; /* Ensure links break */
+}
+.success-message a:hover {
+    text-decoration: underline;
+}
+
+/* Important Notes Section */
+.important-notes {
+    margin-top: 2.5rem;
+    padding: 1.5rem;
+    background-color: rgba(153, 69, 255, 0.1); /* Light purple background */
+    border: 1px solid var(--secondary-color);
+    border-radius: 8px;
+    text-align: left;
+}
+
+.important-notes h3 {
+    color: var(--secondary-color);
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.important-notes ul {
+    padding-left: 20px;
+    margin-bottom: 0;
+}
+
+.important-notes li {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    color: #ccc;
+}
+
+.important-notes code {
+    background-color: var(--input-bg);
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+    font-size: 0.85em;
+    color: var(--primary-color);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: center;
+  }
+  .header h1 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+  }
+  .main-content {
+    padding: 1.5rem;
+  }
+}
